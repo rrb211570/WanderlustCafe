@@ -1,0 +1,25 @@
+#home {
+    margin: 5vh 20vw;
+}
+
+#home__navBar{
+    display: flex;
+    justify-content: space-around;
+}
+
+#home__products{
+    position: absolute;
+}
+
+#home__about {
+    position: absolute;
+    opacity: 0;
+}
+
+#home__cart{
+    height: 5vh;
+}
+
+#home__footer{
+    margin: 95% 0 0 75%;
+}
