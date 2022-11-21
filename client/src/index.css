@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+p{
+  font-family: 'Century Gothic';
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'Bilal';
+  src: local('Bilal'), url(./fonts/Bilal.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Blackmud';
+  src: local('Blackmud'), url(./fonts/Blackmud.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Blackmudunderlines';
+  src: local('Blackmudunderlines'), url(./fonts/Blackmudunderlines.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Bulgathi';
+  src: local('Bulgathi'), url(./fonts/Bulgathi.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Granite';
+  src: local('Granite'), url(./fonts/Granite.ttf) format('truetype');
+}

@@ -1,0 +1,88 @@
+#intro {}
+
+#currentMonth{
+    animation: fadeOut 3s ease;
+    animation-delay: 7s;
+    animation-fill-mode: forwards;
+}
+
+.fadeOut {
+    animation: fadeOut 2s ease;
+    animation-delay: 7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0% {}
+
+    50% {}
+
+    100% {
+        opacity: 0
+    }
+}
+
+#coffee {
+    position: absolute;
+    height: 20vh;
+    right: 20vw;
+    bottom: 5vh;
+    padding: 0 10% 0 0;
+}
+
+#stripe1 {
+    position: absolute;
+    background-color: rgb(255, 191, 72);
+    width: 2vw;
+    left: 10vw;
+    animation: extend 3s linear forwards;
+    animation-timing-function: ease-out;
+}
+
+#stripe2 {
+    position: absolute;
+    background-color: rgb(255, 214, 139);
+    width: 3vw;
+    left: 13vw;
+    animation: extend 3s linear forwards;
+    animation-timing-function: ease-in;
+}
+
+#stripe3 {
+    position: absolute;
+    background-color: rgb(255, 112, 46);
+    width: 3vw;
+    left: 17vw;
+    animation: extend 3s linear forwards;
+    animation-timing-function: linear;
+}
+
+#stripe4 {
+    position: absolute;
+    background-color: rgb(185, 184, 203);
+    width: 3vw;
+    left: 21vw;
+    animation: extend 3s linear forwards;
+    animation-timing-function: ease-in;
+}
+
+#stripe5 {
+    position: absolute;
+    background-color: rgb(163, 163, 163);
+    width: 3vw;
+    left: 25vw;
+    animation: extend 3s linear forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes extend {
+    0% {
+        height: 0;
+        top: 0;
+    }
+
+    100% {
+        top: 0;
+        height: 100vh;
+    }
+}

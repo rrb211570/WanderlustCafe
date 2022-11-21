@@ -1,0 +1,12 @@
+#footerLogo {
+    width: inherit;
+    display: flex;
+    justify-content: end;
+}
+
+#logo {
+    font-family: Bilal;
+    font-size: 3em;
+    color: gray;
+    margin: 0;
+}
