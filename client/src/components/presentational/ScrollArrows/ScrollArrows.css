@@ -1,0 +1,21 @@
+#scrollArrows {
+    position: absolute;
+    height: calc(100% - 10vh);
+    left: -40px;
+    margin: 6vh 0 5vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#scrollArrows__up {
+    height: 5vh;
+    rotate: -90deg;
+    margin-bottom: 4vh;
+}
+
+#scrollArrows__down {
+    height: 5vh;
+    rotate: 90deg;
+    margin-top: 4vh;
+}

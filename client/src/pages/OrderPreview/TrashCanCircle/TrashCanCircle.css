@@ -1,0 +1,48 @@
+.trashCanCircle {
+    position: relative;
+    height: 2rem;
+    width: 2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.trashCanCircle__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 0.1s background-color ease-out;
+    z-index: 1;
+}
+
+.trashCanCircle__bg.hover {
+    transition: null;
+    background-color: rgba(216, 216, 216,1);
+}
+
+.trashCanCircle__bg.hover.click{
+    background-color: rgba(216, 216, 216,0.5);
+}
+
+.trashCanCircle__images{
+    position: absolute;
+    height: calc(100% - 0.6rem);
+    width: calc(100% - 0.6rem);
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+.trashCanCircle__lidImg {
+    position: relative;
+    height: 50%;
+    padding-top: 2px;
+    object-fit: contain;
+}
+
+.trashCanCircle__bodyImg {
+    position: relative;
+    height: 80%;
+    object-fit: contain;
+}

@@ -8,8 +8,89 @@ section {
     justify-content: space-between;
 }
 
+#orderPreview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#orderPreview__nav {
+    height: 10vh;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#orderPreview__navBack {
+    width: 4rem;
+    height: 2rem;
+    border: 1.5px solid black;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+#orderPreview__navBackBtn {
+    width: 100%;
+    border: none;
+    background-color: rgb(226, 226, 226);
+    font-size: 3rem;
+    font-weight: 700;
+    padding-bottom: 1rem;
+}
+
+#orderPreview__navHeader {
+    font-size: 2em;
+}
+
+#orderPreview__navBuffer {
+    width: 10%;
+}
+
+#orderPreview__items {
+    width: 40%;
+}
+
+.eventCard {
+}
+
+.orderPreview__dateAndTimeDiv {
+    height: 2em;
+    padding-left: 1vw;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: rgb(241, 241, 241);
+    font-weight: 700;
+}
+
+.orderPreview__dateAndTime {}
+
+.selectionCard {
+    height: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+    border-top: 1px solid black;
+}
+
+.orderPreview__nameAndDelete{
+    display: flex;
+    align-items: center;
+    width: 45%;
+}
+
+#orderPreview__total {
+    text-align: right;
+    padding: 0 1vw;
+}
+
 #orderPreview__checkoutBtn {
     height: 36px;
+    width: 40%;
     background: #556cd6;
     border-radius: 4px;
     color: white;

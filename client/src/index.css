@@ -10,6 +10,7 @@ body {
 
 p{
   font-family: 'Century Gothic';
+  margin: 0;
 }
 
 code {
@@ -20,24 +21,4 @@ code {
 @font-face {
   font-family: 'Bilal';
   src: local('Bilal'), url(./fonts/Bilal.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Blackmud';
-  src: local('Blackmud'), url(./fonts/Blackmud.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Blackmudunderlines';
-  src: local('Blackmudunderlines'), url(./fonts/Blackmudunderlines.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Bulgathi';
-  src: local('Bulgathi'), url(./fonts/Bulgathi.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Granite';
-  src: local('Granite'), url(./fonts/Granite.ttf) format('truetype');
 }

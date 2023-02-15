@@ -1,44 +1,52 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import CounterDropdown from "../../components/CounterDropdown/CounterDropdown";
-import './OrderPreview.css'
+import Counter from "../../components/presentational/Counter/Counter";
+import './OrderPreview.css';
+import TrashCanCircle from './TrashCanCircle/TrashCanCircle';
 
-function OrderDetails({ cartContents, setCartContents }) {
+function OrderDetails({ popUps, cartContents, updateCart }) {
+    const [total, setTotal] = useState(0);
     let nav = useNavigate();
 
     let navToHome = () => {
         nav('/home')
     }
 
-    let updateCart = (dateAndTime, productName, count) => {
-        let currentCartContents = cartContents;
-        currentCartContents[dateAndTime][productName].count = count;
-        setCartContents({ ...currentCartContents });
+    let deleteEntry = (dateAndTime, productID) => {
+        console.log('deleteEntry');
+        updateCart(dateAndTime, productID, 0);
     }
 
     let createSelectionCards = (cartContents) => {
         let chosenEvents = [];
-        let total = 0;
+        let sum = 0;
+        let index = 0;
         for (const [dateAndTime, selectedProducts] of Object.entries(cartContents)) {
             let selectionCards = [];
-            for (const [name, selectionDetails] of Object.entries(selectedProducts)) {
+            for (const [productID, count] of Object.entries(selectedProducts)) {
+                let unitsTotalCost = popUps.get(dateAndTime).productLineUp[productID].unitPrice * count;
                 selectionCards.push(
-                    <div key={name} className='selectionCard'>
-                        <CounterDropdown dateAndTime={dateAndTime} productName={name} updateCart={updateCart} count={selectionDetails.count} />
-                        <p>{name}</p>
-                        <p>{selectionDetails.unitPrice * selectionDetails.count}</p>
+                    <div key={productID} className='selectionCard'>
+                        <div className='orderPreview__nameAndDelete'>
+                            <TrashCanCircle deleteEntry={deleteEntry} dateAndTime={dateAndTime} productID={productID} />
+                            <p>{popUps.get(dateAndTime).productLineUp[productID].name}</p>
+                        </div>
+                        <p>${unitsTotalCost.toFixed(2)}</p>
+                        <Counter identifiers={[dateAndTime, productID]} count={count} minQuantity={1} maxQuantity={popUps.get(dateAndTime).productLineUp[productID].quantity} updateFunction={updateCart} />
                     </div>
                 );
-                total += selectionDetails.unitPrice * selectionDetails.count
+                sum += unitsTotalCost;
             }
             chosenEvents.push(
                 <div key={dateAndTime} className='eventCard'>
-                    <p>{dateAndTime}</p>
+                    <div className='orderPreview__dateAndTimeDiv'>
+                        <p className='orderPreview__dateAndTime'>{dateAndTime}</p>
+                    </div>
                     {selectionCards}
                 </div>
             )
         }
-        chosenEvents.push(<div key='__total' id='cart__total'>Total: {total}</div>);
+        if (sum != total) setTotal(sum);
         return chosenEvents;
     }
 
@@ -46,7 +54,7 @@ function OrderDetails({ cartContents, setCartContents }) {
         let orderDetails = getItemCounts(cartContents);
         console.log(orderDetails);
         fetch('https://us-central1-wanderlustcafe.cloudfunctions.net/api/checkout_session', {
-            method: 'POST', // or 'PUT'
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -64,14 +72,17 @@ function OrderDetails({ cartContents, setCartContents }) {
 
     return (
         <div id='orderPreview'>
-            <button onClick={navToHome}>Back</button>
-            <div>
-                <p>Confirm order</p>
-                {createSelectionCards(cartContents)}
-                <button id='orderPreview__checkoutBtn' onClick={submitOrder}>
-                    Checkout
-                </button>
+            <div id='orderPreview__nav'>
+                <div id='orderPreview__navBack'>
+                    <button id='orderPreview__navBackBtn' onClick={navToHome}>&#x2190;</button>
+                </div>
+                <p id='orderPreview__navHeader'>Confirm order</p>
+                <div id='orderPreview__navBuffer'></div>
             </div>
+            <div id='orderPreview__items'>
+                {createSelectionCards(cartContents)}
+            </div>
+            <button id='orderPreview__checkoutBtn' onClick={submitOrder}>Pay {total == 0 ? '' : '$' + total}</button>
         </div>
     );
 }
@@ -92,7 +103,7 @@ const Message = ({ message }) => (
     </section>
 );
 
-function OrderPreviewPanel({ cartContents, setCartContents }) {
+function OrderPreviewPanel({ popUps, cartContents, updateCart }) {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
@@ -113,7 +124,7 @@ function OrderPreviewPanel({ cartContents, setCartContents }) {
     return message ? (
         <Message message={message} />
     ) : (
-        <OrderDetails cartContents={cartContents} setCartContents={setCartContents} />
+        <OrderDetails popUps={popUps} cartContents={cartContents} updateCart={updateCart} />
     );
 }
 

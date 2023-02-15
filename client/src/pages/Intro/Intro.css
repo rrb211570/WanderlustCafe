@@ -1,6 +1,27 @@
-#intro {}
+#currentMonth {
+    font-family: 'Century Gothic';
+    position: absolute;
+    top: 5vh;
+    left: 30vw;
+    font-size: 4em;
+    color: lightblue;
+    opacity: 0;
+    animation: fadeIn 2s ease;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+}
 
-#currentMonth{
+@keyframes fadeIn {
+    0% {}
+
+    50% {}
+
+    100% {
+        opacity: 1
+    }
+}
+
+#currentMonth__fadeOut{
     animation: fadeOut 3s ease;
     animation-delay: 7s;
     animation-fill-mode: forwards;
@@ -20,14 +41,6 @@
     100% {
         opacity: 0
     }
-}
-
-#coffee {
-    position: absolute;
-    height: 20vh;
-    right: 20vw;
-    bottom: 5vh;
-    padding: 0 10% 0 0;
 }
 
 #stripe1 {

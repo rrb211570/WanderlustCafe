@@ -1,0 +1,11 @@
+.productDetails{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.productDetails__panel{
+    background-color: rgb(217, 246, 255);
+    padding: 3vh 20px 3vh calc(50% + 45px);
+}

@@ -1,0 +1,42 @@
+#products {
+    position: relative;
+    height: 80vh;
+    width: inherit;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#products__overlay {
+    position: absolute;
+    width: calc(max(70vw, 380px));
+    height: calc(80vh - 6px);
+    background: linear-gradient(rgba(255, 255, 255, 1) 1%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgba(255, 255, 255, 1) 99%);
+    border-bottom: 6px solid rgb(214, 245, 255);
+    z-index: 1;
+}
+
+#products__cardsWrapper{
+    position: relative;
+    overflow-x: hidden;
+    height: inherit;
+    width: inherit;
+}
+
+#products__cards {
+    height: calc(100%);
+    width: inherit;
+    overflow-y: auto;
+    margin-left: 30px;
+}
+
+#products__bufferTop{
+    height: 3vh;
+}
+
+.products__card {
+    position: relative;
+    height: 37vh;
+}
+
+#products__bufferBottom{
+    height: 4vh;
+}

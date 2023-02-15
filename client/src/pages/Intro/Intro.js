@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import OpeningScene from "../../components/OpeningScene/OpeningScene";
 import './Intro.css'
 
 function Intro() {
@@ -20,9 +19,8 @@ function Intro() {
                 <div id='stripe5'></div>
             </div>
             <div id='currentMonth'>
-                <OpeningScene />
+                <p id='currentMonth__fadeOut'>Nov 2022</p>
             </div>
-            <img id='coffee' className='fadeOut' src='coffee.png' />
         </div>
     );
 }
